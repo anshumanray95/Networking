@@ -15,21 +15,21 @@ public class GameClient {
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
-            // Read welcome message from the server
+            // welcome message
             System.out.println(input.readLine());
 
-            // Start the game loop
+            // game loop
             while (true) {
                 // Display the current board
                 System.out.println(input.readLine());
 
-                // Get user input for the move
+                // user input for the move
                 BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("Enter your move (row and column separated by a space): ");
                 String move = consoleInput.readLine();
                 output.println(move);
 
-                // Display the result of the move
+                // display result of the move
                 System.out.println(input.readLine());
             }
         } catch (IOException e) {
